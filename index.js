@@ -1,6 +1,9 @@
+var APP_KEY = 'a02f100000Q6K3yAAF';
+var PEDIGREE_GENERATIONS = 3;
+
 var fs = new FamilySearch({
   environment: 'integration',
-  appKey: 'a02f100000Q6K3yAAF',
+  appKey: APP_KEY,
   redirectUri: window.location.href,
   saveAccessToken: true
 });
@@ -8,7 +11,9 @@ var fs = new FamilySearch({
 // Process OAuth response, if we have one. true is returned if a code parameter
 // was found in the query. Otherwise false is returned.
 if(fs.oauthResponse(load)){
-  // noop
+  // Noop. When oauthResponse returns true it means it found a code and is
+  // going to exchange it for an access token. The response is handled in
+  // the callback parameter of that method.
 }
 
 // We didn't find a oauth code in the query parameters so now we check to see
@@ -53,7 +58,11 @@ function load(){
 function displayPedigree(persons){
   var generations = calculateGenerations(persons),
       $list = document.querySelector('.family-list');
+  
+  // Clear the loading message
+  $list.innerHTML = '';
       
+  // Generate and add the generation groups
   Object.keys(generations).forEach(function(generationNumber){
     var persons = generations[generationNumber];
     var $generation = document.createElement('div');
@@ -123,7 +132,7 @@ function getUsersPersonId(callback){
  * https://familysearch.org/developers/docs/api/tree/Ancestry_resource
  */
 function getPersonsPedigree(personId, callback){
-  fs.get('/platform/tree/ancestry?person=' + personId, function(error, response){
+  fs.get('/platform/tree/ancestry?person=' + personId + '&generations=' + PEDIGREE_GENERATIONS, function(error, response){
     if(error) {
       handleError(error);
     } else {
