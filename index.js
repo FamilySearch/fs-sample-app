@@ -58,7 +58,7 @@ function getUsersPersonId(callback){
  * https://familysearch.org/developers/docs/api/tree/Ancestry_resource
  */
 function getPersonsPedigree(personId, callback){
-  fs.get('/platform/ancestry?person=' + personId, function(error, response){
+  fs.get('/platform/tree/ancestry?person=' + personId, function(error, response){
     if(error) {
       handleError(error);
     } else {
