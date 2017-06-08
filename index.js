@@ -5,6 +5,11 @@ var fs = new FamilySearch({
   saveAccessToken: true
 });
 
+// Process OAuth response, if we have one
+fs.oauthResponse(function(){
+  load();
+});
+
 // Wire up the Sign In button
 document.getElementById('signin').addEventListener('click', function(){
   fs.oauthRedirect();
@@ -12,7 +17,10 @@ document.getElementById('signin').addEventListener('click', function(){
 
 // If we're authenticated then load the pedigree
 if(fs.getAccessToken()){
-  
+  load();
+}
+
+function load(){
   // We first make a request to the API to get the ID of the person
   // in the tree that represents this user.
   getUsersPersonId(function(personId){
@@ -27,7 +35,7 @@ if(fs.getAccessToken()){
       console.log(persons);
 
     });
-  })
+  });
 }
 
 /**
@@ -40,7 +48,7 @@ function getUsersPersonId(callback){
       handleError(error);
     }
     else {
-      callback(response.data.users[i].personId);
+      callback(response.data.users[0].personId);
     }
   });
 }
