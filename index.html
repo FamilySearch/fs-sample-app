@@ -3,11 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>FamilySearch Sample App</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    
-    <button id="signin">Sign In</button>
-
+    <div class="container">
+      <h1>FamilySearch API Sample App</h1>
+      
+      <div class="no-auth">
+        <button id="signin">Sign In</button>
+      </div>
+      
+      <div class="auth">
+        <div class="family-list">
+          <p>Loading your pedigree...</p>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/fs-js-lite@2.x/dist/FamilySearch.min.js"></script>
     <script src="index.js"></script>
   </body>

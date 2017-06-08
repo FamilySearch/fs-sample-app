@@ -5,37 +5,102 @@ var fs = new FamilySearch({
   saveAccessToken: true
 });
 
-// Process OAuth response, if we have one
-fs.oauthResponse(function(){
-  load();
-});
+// Process OAuth response, if we have one. true is returned if a code parameter
+// was found in the query. Otherwise false is returned.
+if(fs.oauthResponse(load)){
+  // noop
+}
 
-// Wire up the Sign In button
-document.getElementById('signin').addEventListener('click', function(){
-  fs.oauthRedirect();
-});
-
-// If we're authenticated then load the pedigree
-if(fs.getAccessToken()){
+// We didn't find a oauth code in the query parameters so now we check to see
+// if we're already authenticated.
+else if(fs.getAccessToken()){
   load();
 }
 
+// If we're not processing an OAuth response and we're not already authenticated,
+// we wire up and display the signin button so that the user can initiate authentication.
+else {
+  document.getElementById('signin').addEventListener('click', function(){
+    fs.oauthRedirect();
+  });
+}
+
+/**
+ * This method is called once the user is signed in and begins
+ * loading data from the API.
+ */
 function load(){
+  
+  // Update displayed sections
+  document.querySelector('.no-auth').style.display = 'none';
+  document.querySelector('.auth').style.display = 'block';
+  
   // We first make a request to the API to get the ID of the person
   // in the tree that represents this user.
   getUsersPersonId(function(personId){
 
     // Now that we have the user's person ID we can request their pedigree
     getPersonsPedigree(personId, function(persons){
-
-      // The pedigree is returned as a flat list of persons that are
-      // annotated with Ahnentafel numbers. http://en.wikipedia.org/wiki/Ahnentafel
-      // We use those numbers to assemble the pedigree.
-
-      console.log(persons);
-
+      displayPedigree(persons);
     });
   });
+}
+
+/**
+ * This method will interpret the pedigree response and display the persons
+ * grouped by generation.
+ */
+function displayPedigree(persons){
+  var generations = calculateGenerations(persons),
+      $list = document.querySelector('.family-list');
+      
+  Object.keys(generations).forEach(function(generationNumber){
+    var persons = generations[generationNumber];
+    var $generation = document.createElement('div');
+    var $title = document.createElement('h3');
+    $title.textContent = 'Generation ' + generationNumber;
+    $generation.appendChild($title);
+    persons.forEach(function(person){
+      var $person = document.createElement('div');
+      $person.textContent = person.display.name + ' • ' + person.id + ' • ' + person.display.lifespan;
+      $generation.appendChild($person);
+      $list.appendChild($generation);
+    });
+  });
+}
+
+/**
+ * Given a list of persons annotated with ahnentafel numbers, group them by generation
+ */
+function calculateGenerations(persons){
+  
+  // The pedigree is returned as a flat list of persons that are
+  // annotated with Ahnentafel numbers. http://en.wikipedia.org/wiki/Ahnentafel
+  // We use those numbers to assemble the pedigree.
+  
+  // This map will be keyed by the generation number (1,2,3, etc)
+  var generations = { };
+  
+  persons.forEach(function(person){
+    var ahnenNumber = person.display.ascendancyNumber;
+        
+    // Ignore the spouse
+    if(ahnenNumber === '1-S'){
+      return;
+    }
+        
+    // According to the Wikipedia article linked to above, we can calculate
+    // the generation number by rounding down log2() of the ahnentafel number
+    var generation = Math.floor(Math.log2(ahnenNumber));
+        
+    if(!Array.isArray(generations[generation])){
+      generations[generation] = [];
+    }
+    
+    generations[generation].push(person);
+  });
+  
+  return generations;
 }
 
 /**
