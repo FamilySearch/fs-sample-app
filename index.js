@@ -1,10 +1,18 @@
+// Change this line to add your own app key. You can generate an app key by
+// registering an app in developer's portal.
 var APP_KEY = 'a02f100000Q6K3yAAF';
-var PEDIGREE_GENERATIONS = 3;
 
+// Change this line to add the redirect URI associated with the app key above
+var REDIRECT_URI = 'https://york.io/fs-sample-app/';
+
+// You can modify this variable to change how many generations are included in the pedigree
+var PEDIGREE_GENERATIONS = 5;
+
+// Here we create and configure the API client
 var fs = new FamilySearch({
   environment: 'integration',
   appKey: APP_KEY,
-  redirectUri: window.location.href,
+  redirectUri: REDIRECT_URI,
   saveAccessToken: true
 });
 
