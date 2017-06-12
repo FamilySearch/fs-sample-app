@@ -17,28 +17,38 @@ installing anything.
 
 1. Follow the [Getting Started Guide](https://familysearch.org/developers/docs/guides/getting-started) to 
 create a developer account and register an app. You can name the app anything you
-want. We recommend it be descriptive, such as "FS Sample App." For the redirect URI,
+want. We recommend it be descriptive, such as "Sample App." For the redirect URI,
 just put "http://localhost". We will change that later.
 
-1. Click the "Remix on Glitch" button above to have the sample app automatically
-imported into Glitch with an editor and environment ready to go.
+    ![Create app](images/create-app.png)
 
-    > If a `.env` file is automatically added then you'll need to delete it.
+1. Click the "Remix on Glitch" button above to have the sample app automatically
+imported into Glitch with an editor and environment ready to go. Notice that
+a random name is assigned to your app. In our case we were given "wiry-bass".
+
+    ![Glitch app name](images/glitch-app-name.png)
+
+1. If a `.env` file is automatically added then you'll need to delete it.
     
     ![Delete .env](images/env-delete.png)
 
 1. Click the "Show" button at the top to preview the app. Your app will be available 
 at URL of the form `https://[RANDOM_APP_NAME].glitch.me/`. For example, 
-`https://telling-pine.glitch.me/`.
+`https://wiry-bass.glitch.me/`.
 
-1. Update the registered redirect URI of your app, from step 1 above, to match
-the `glitch.me` URL of your app.
+    ![Glitch preview](images/glitch-preview.png)
 
-1. Open `index.js` in the Glitch editor. 
+1. In the FamilySearch developer center, update the registered redirect URI of 
+your app, from step 1 above, to match the `glitch.me` URL of your app.
+
+    ![Update redirect URI](images/update-redirect-uri.png)
+
+1. In the Glitch editor, open `index.js`. 
 
 1. Modify the value of `APP_KEY` to match the app key generated in step 1 above.
 
 1. Modify the value of `REDIRECT_URI` to match the `glitch.me` URL of your app.
 
-1. Click the "Show" button at the top again. You should be able to run the app,
-login with FamilySearch, and see your integration user's pedigree automatically loaded.
+    ![Update code](images/update-code.png)
+
+1. Run the app again. You can now login with FamilySearch and see it load your integration user's pedigree.
