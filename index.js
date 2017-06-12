@@ -31,7 +31,7 @@ else if(fs.getAccessToken()){
 }
 
 // If we're not processing an OAuth response and we're not already authenticated,
-// we wire up and display the signin button so that the user can initiate authentication.
+// we wire up and display the sign in button so that the user can initiate authentication.
 else {
   document.getElementById('signin').addEventListener('click', function(){
     fs.oauthRedirect();
