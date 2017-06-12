@@ -24,6 +24,8 @@ just put "http://localhost". We will change that later.
 imported into Glitch with an editor and environment ready to go.
 
     > If a `.env` file is automatically added then you'll need to delete it.
+    
+    ![Delete .env](images/env-delete.png)
 
 1. Click the "Show" button at the top to preview the app. Your app will be available 
 at URL of the form `https://[RANDOM_APP_NAME].glitch.me/`. For example, 
