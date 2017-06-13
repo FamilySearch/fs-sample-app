@@ -2,8 +2,8 @@
 
 A sample app for getting started with the [FamilySearch API](https://familysearch.org/developers/).
 The app uses the [fs-js-lite SDK](https://github.com/FamilySearch/fs-js-lite)
-to show how to perform basic API operations such as authentication, 
-loading the user's profile, and loading the user's pedigree.
+to show how to perform basic API operations such as authentication and loading
+the current user's person.
 
 _This app is not intended to be an example of best practices for the web._
 
@@ -47,4 +47,5 @@ your app, from step 1 above, to match the `glitch.me` URL of your app.
 
     ![Update code](images/update-code.png)
 
-1. Run the app again. You can now login with FamilySearch and see it load your integration user's pedigree.
+1. Run the app again. You can now login with FamilySearch and see it load your 
+integration user's current person.
