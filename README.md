@@ -28,10 +28,6 @@ a random name is assigned to your app. In our case we were given "wiry-bass".
 
     ![Glitch app name](images/glitch-app-name.png)
 
-1. If a `.env` file is automatically added then you'll need to delete it.
-    
-    ![Delete .env](images/env-delete.png)
-
 1. Click the "Show" button at the top to preview the app. Your app will be available 
 at URL of the form `https://[RANDOM_APP_NAME].glitch.me/`. For example, 
 `https://wiry-bass.glitch.me/`.
