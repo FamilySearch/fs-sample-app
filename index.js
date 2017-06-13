@@ -5,9 +5,6 @@ var APP_KEY = 'a02f100000Q6K3yAAF';
 // Change this line to add the redirect URI associated with the app key above
 var REDIRECT_URI = 'https://york.io/fs-sample-app/';
 
-// You can modify this variable to change how many generations are included in the pedigree
-var PEDIGREE_GENERATIONS = 5;
-
 // Here we create and configure the API client
 var fs = new FamilySearch({
   environment: 'integration',
