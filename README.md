@@ -13,8 +13,6 @@ We will use [Glitch](https://glitch.com/) to copy the sample app into an online
 development environment so that you can run and modify the sample app without
 installing anything.
 
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b/remix-button.svg)](https://glitch.com/edit/#!/import/github/york-solutions/fs-sample-app)
-
 1. Follow the [Getting Started Guide](https://familysearch.org/developers/docs/guides/getting-started) to 
 create a developer account and register an app. You can name the app anything you
 want. We recommend it be descriptive, such as "Sample App." For the redirect URI,
@@ -22,11 +20,10 @@ just put "http://localhost". We will change that later.
 
     ![Create app](images/create-app.png)
 
-1. Click the "Remix on Glitch" button above to have the sample app automatically
-imported into Glitch with an editor and environment ready to go. Notice that
-a random name is assigned to your app. In our case we were given "wiry-bass".
+1. Click the "Remix on Glitch" button below to have the sample app automatically
+imported into Glitch with an editor and environment ready to go.
 
-    ![Glitch app name](images/glitch-app-name.png)
+    [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b/remix-button.svg)](https://glitch.com/edit/#!/import/github/york-solutions/fs-sample-app)
 
 1. Click the "Show" button at the top to preview the app. Your app will be available 
 at URL of the form `https://[RANDOM_APP_NAME].glitch.me/`. For example, 
