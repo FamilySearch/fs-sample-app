@@ -18,7 +18,7 @@ create a developer account and register an app. You can name the app anything yo
 want. We recommend it be descriptive, such as "Sample App." For the redirect URI,
 just put "http://localhost". We will change that later.
 
-    ![Create app](https://familysearch.github..io/fs-sample-app/images/create-app.png)
+    ![Create app](https://familysearch.github.io/fs-sample-app/images/create-app.png)
 
 1. Click the "Remix on Glitch" button below to have the sample app automatically
 imported into Glitch with an editor and environment ready to go.
@@ -29,12 +29,12 @@ imported into Glitch with an editor and environment ready to go.
 at URL of the form `https://[RANDOM_APP_NAME].glitch.me/`. For example, 
 `https://wiry-bass.glitch.me/`.
 
-    ![Glitch preview](https://familysearch.github..io/fs-sample-app/images/glitch-preview.png)
+    ![Glitch preview](https://familysearch.github.io/fs-sample-app/images/glitch-preview.png)
 
 1. In the FamilySearch developer center, update the registered redirect URI of 
 your app, from step 1 above, to match the `glitch.me` URL of your app.
 
-    ![Update redirect URI](https://familysearch.github..io/fs-sample-app/images/update-redirect-uri.png)
+    ![Update redirect URI](https://familysearch.github.io/fs-sample-app/images/update-redirect-uri.png)
 
 1. In the Glitch editor, open `index.js`. 
 
@@ -42,7 +42,7 @@ your app, from step 1 above, to match the `glitch.me` URL of your app.
 
 1. Modify the value of `REDIRECT_URI` to match the `glitch.me` URL of your app.
 
-    ![Update code](https://familysearch.github..io/fs-sample-app/images/update-code.png)
+    ![Update code](https://familysearch.github.io/fs-sample-app/images/update-code.png)
 
 1. Run the app again. You can now login with FamilySearch and see it load your 
 integration user's current person.
