@@ -23,7 +23,7 @@ just put "http://localhost". We will change that later.
 1. Click the "Remix on Glitch" button below to have the sample app automatically
 imported into Glitch with an editor and environment ready to go.
 
-    [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b/remix-button.svg)](https://glitch.com/edit/#!/import/github/york-solutions/fs-sample-app)
+    [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b/remix-button.svg)](https://glitch.com/edit/#!/import/github/FamilySearch/fs-sample-app)
 
 1. Click the "Show" button at the top to preview the app. Your app will be available 
 at URL of the form `https://[RANDOM_APP_NAME].glitch.me/`. For example, 
