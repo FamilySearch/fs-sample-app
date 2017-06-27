@@ -3,7 +3,7 @@
 var APP_KEY = 'a02f100000Q6K3yAAF';
 
 // Change this line to add the redirect URI associated with the app key above
-var REDIRECT_URI = 'https://york.io/fs-sample-app/';
+var REDIRECT_URI = 'https://familysearch.github.io/fs-sample-app/';
 
 // Here we create and configure the API client
 var fs = new FamilySearch({
